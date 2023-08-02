@@ -1,18 +1,5 @@
 <?php
 
-/**
- * @file plugins/importexport/native/doixml.inc.php
- *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @class doixml
- * @ingroup plugins_importexport_native
- *
- * @brief Native XML import/export plugin
- */
-
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 
 class doixml extends ImportExportPlugin {
@@ -31,7 +18,8 @@ class doixml extends ImportExportPlugin {
 		if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) return $success;
 		if ($success && $this->getEnabled()) {
 			$this->addLocaleData();
-			}
+			$this->import('doixmlDeployment');
+		}
 		return $success;
 	}
 
